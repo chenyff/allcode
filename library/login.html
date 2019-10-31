@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>闪云付登陆页面</title>
+	<link rel="stylesheet" href="lib/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="lib/css/login.css" />
+	<link rel="stylesheet" href="lib/css/themify-icons.min.css" />
+	<script src="lib/js/jquery-1.9.1.js"></script>
+</head>
+<body>
+	<div class="loginCon">
+		<h1>闪云付</h1>
+		<div class="login-body">
+			<div class="container">
+				<div class="form-container">
+                    <div class="form-group">
+                        <div class="input-group input-group-first">
+                            <span class="input-group-addon">
+                                <span class="ti-user"></span>
+                            </span>
+                            <input type="text" id="username" class="input-lg" placeholder="用户名">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <span class="ti-lock"></span>
+                            </span>
+                            <input type="password" id="password" class="input-lg" placeholder="密码">
+                        </div>
+                    </div>
+
+                    <div class="divider divider-xl"></div>
+                    <div class="form-group">
+                        <button type="submit" id="loginBtn" class="btn btn-primary btn-lg btn-block text-center" >登录</button>
+                    </div> 
+	            </div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="lib/js/layer.js"></script>
+	<script type="text/javascript">
+		(function(){
+			$("#loginBtn").on("click",function(){
+				var username = $.trim($("#username").val());
+				var password = $.trim($("#password").val());
+				if(username == ""){
+					layer.msg("用户名不能为空",{
+						offset:'t',
+						anim:6
+					});
+					return;
+				}
+				if(password == ""){
+					layer.msg("密码不能为空",{
+						offset:'t',
+						anim:6
+					});
+					return;
+				}
+				$.post('userlogin',{username:username,password:password},function(response){
+					
+				},"json");
+			})
+		})();
+	</script>
+</body>
+</html>

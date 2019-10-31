@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>闪云付学院</title>
+    <link href="lib/css/bootstrap.min.css" rel="stylesheet">
+    <script src="lib/js/jquery-1.9.1.js"></script>
+    <script src="lib/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="lib/laydate/laydate.js"></script>
+  </head>
+  <body>
+  	    <!--顶部导航-->
+		    <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">闪云付学院——图书馆</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul id="navUl" class="nav navbar-nav">
+                <li><a href="/">图书管理</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!--中间图书列表-->
+        <div class="container">
+		      <div class="row" style="margin-bottom: 15px;">
+		          <div class="col-lg-7" id="operation" >
+		            <!-- menu -->
+		                <ul class="nav nav-pills">
+		                      <li><a id="newBtn" href="javascript:;">新增书籍</a></li>
+		                      <li><a id="updateBtn" href="javascript:;">修改书籍</a></li>
+		                      <li><a id="delBtn" href="javascript:;">删除书籍</a></li>
+		                      <li><a id="borBtn" href="javascript:;">借阅书籍</a></li>
+		                      <li><a id="returnBtn" href="javascript:;">归还书籍</a></li>
+		                      <li><a id="exportBtn" href="javascript:;">导出记录</a></li>
+		                      <li><a id="borSearchBtn" href="javascript:;">借阅查询</a></li>
+		                </ul>
+		            <!-- menu -->
+		          </div>
+		          <div class="col-lg-5">
+		          	<div class="btn-group">
+										  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										    <span class="btntxt">类型</span> <span class="caret"></span>
+										  </button>
+										  <ul class="dropdown-menu classbtn">
+										    <li><a href="#">专业</a></li>
+										    <li><a href="#">非专业</a></li>
+										  </ul>
+							  </div>
+							  <div class="btn-group">
+										  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										    <span class="btntxt">状态</span><span class="caret"></span>
+										  </button>
+										  <ul class="dropdown-menu statusbtn">
+										    <li status="01"><a href="#">已借</a></li>
+										    <li status="02"><a href="#">未借</a></li>
+										  </ul>
+							  </div>
+		            <div class="input-group">
+		              <input type="text" class="form-control" id="searchVal" placeholder="输入你想找的书名">
+		              <span class="input-group-btn">
+		                <button class="btn btn-default" id="searchBtn" type="button">Go!</button>
+		              </span>
+		            </div>
+		          </div>
+		        </div>
+		        
+		        <table id="gTable" class="table table-bordered table-striped table-hover">
+		        	
+		            <thead>
+		                <tr>
+		                    <th><input type="checkbox" /></th>
+		                    <th>编号</th>
+		                    <th>书名</th>
+		                    <th>类型</th>
+		                    <th>价格</th>
+		                    <th>状态</th>
+		                </tr>
+		            </thead>
+		            <tbody>
+		            	<%for(var i=0;i<goodsList.length;i++){var u=goodsList[i];%>  
+							<tr>
+								 <td><input id="<%=u.id%>" type="checkbox" /></td>
+			                   <td><%=u.detail%></td>
+	               				 <td><%=u.name%></td>
+	                			 <td><%=u.classify%></td>
+	                			 <td><%=u.price%></td>
+	                			 <td data-number="<%=u.number%>"><%=u.status%></td>
+                		  </tr>
+						<%}%> 
+		            </tbody>
+		        </table>
+		        <nav aria-label="Page navigation" class="clearfix">
+		        	  
+		            <ul id="pagination" class="pagination pull-right" style="margin-top: 0;">
+		             
+		            </ul>
+		            <div class="allNumber">总共：</div> 
+		        </nav>
+		        <div class="hotBook clearfix">
+		        	<h2>热门书籍</h2>
+		        	<ul class="hothead clearfix">
+		        		<li>
+		        			<span class="bookname">书名</span>
+		        			<span class="bornumber">借阅次数</span>
+		        		</li>
+		        		<li>
+		        			<span class="bookname">书名</span>
+		        			<span class="bornumber">借阅次数</span>
+		        		</li>
+		        	</ul>
+		        	<ul class="hotbooklist clearfix">
+		        		
+		        	</ul>
+
+		        </div>
+		</div>
+
+		<!--这是增加书籍与修改书籍用的板块-->
+		<div class="modal fade" id="myModal">
+		      <div class="modal-dialog" role="document">
+		        <div class="modal-content">
+		          <div class="modal-header">
+		            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		            <h4 class="modal-title" id="myModalLabel">新增书籍</h4>
+		          </div>
+		          <div class="modal-body">
+		            <form class="form-horizontal">
+		                <div class="form-group">
+		                  <label class="col-sm-2 control-label">编号</label>
+		                  <div class="col-sm-4">
+		                    <input type="text" class="form-control" id="number">
+		                    <input type="hidden" id="gid"/>
+		                  </div>
+		                </div>
+		                <div class="form-group">
+		                  <label class="col-sm-2 control-label">书名</label>
+		                  <div class="col-sm-10">
+		                    <input type="text" class="form-control" id="name" placeholder="请输入书籍名称">
+		                  </div>
+		                </div>
+		                <div class="form-group">
+		                  <label class="col-sm-2 control-label">类型</label>
+		                  <div class="col-sm-4">
+		                      <select id="classify" class="form-control">
+		                          <option>专业</option> 
+		                          <option>非专业</option>
+		                      </select>
+		                  </div>
+		                </div>
+		                <div class="form-group">
+		                  <label class="col-sm-2 control-label">价格</label>
+		                  <div class="col-sm-4">
+		                    <input type="text" class="form-control" id="price">
+		                  </div>
+		                </div>
+		            </form>
+		          </div>
+		          <div class="modal-footer">
+		            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+		            <button type="button" class="btn btn-primary saveMess">保存</button>
+		          </div>
+		        </div>
+		      </div>
+		</div>
+		<!--这是我要借书用的板块-->
+		<div class="modal fade" id="myModalBor">
+		      <div class="modal-dialog" role="document">
+		        <div class="modal-content">
+		          <div class="modal-header">
+		            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		            <h4 class="modal-title">我要借书</h4>
+		          </div>
+		          <div class="modal-body">
+		            <form class="form-horizontal">
+		                <div class="form-group">
+		                  <label class="col-sm-2 control-label">编号</label>
+		                  <div class="col-sm-4">
+		                    <input type="text" class="form-control" id="numberBor" readonly="readonly">
+		                    <input type="hidden" id="gidBor"/>
+		                  </div>
+		                </div>
+		                <div class="form-group">
+		                  <label class="col-sm-2 control-label">书名</label>
+		                  <div class="col-sm-8">
+		                    <input type="text" class="form-control" id="nameBor" readonly="readonly">
+		                  </div>
+		                </div>
+		                <div class="form-group">
+		                  <label class="col-sm-2 control-label">类型</label>
+		                  <div class="col-sm-4">
+		                      <input type="text" class="form-control" id="classifyBor" readonly="readonly">
+		                  </div>
+		                </div>
+		                <div class="form-group">
+		                  <label class="col-sm-2 control-label">价格</label>
+		                  <div class="col-sm-4">
+		                    <input type="text" class="form-control" id="priceBor" readonly="readonly">
+		                  </div>
+		                </div>
+		                <div class="form-group whoBorro">
+		                  <label class="col-sm-2 control-label">借阅人</label>
+		                  <div class="col-sm-4">
+		                    <input type="text" class="form-control" id="borUser" placeholder="输入您的姓名">
+		                  </div>
+		                </div>
+		                <div class="form-group whosee">
+		                  <label class="col-sm-2 control-label">谁看过</label>
+		                  <div class="col-sm-10">
+		                      <textarea class="form-control" rows="3" id="whosee" style=" resize:none;" readonly="readonly"></textarea>
+		                  </div>
+		                </div>
+		                <div class="form-group lasttime">
+		                  <label class="col-sm-2 control-label">最近借出</label>
+		                  <div class="col-sm-4">
+		                    <input type="text" class="form-control" id="borrowtime" readonly="readonly">
+		                  </div>
+		                </div>
+		              </form>
+		          </div>
+		          <div class="modal-footer">
+		            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+		            <button type="button" id="borBookBtn" class="btn btn-default">我要借书</button>
+		          </div>
+		        </div>
+		      </div>
+		</div>
+		<!-- 这是导出读书历史的表格 -->
+		<div class="modal fade" id="myModalexport">
+		      <div class="modal-dialog" role="document">
+		        <div class="modal-content">
+		          <div class="modal-header">
+		            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		            <h4 class="modal-title">导出数据</h4>
+		          </div>
+		          <div class="modal-body">
+		            <form class="form-horizontal">
+		                <div class="form-group">
+		                  <label class="col-sm-2 control-label">开始时间</label>
+		                  <div class="col-sm-4">
+		                    <input type="text" id="beginTime" readonly class="form-control">
+		                  </div>
+		                </div>
+		                <div class="form-group">
+		                  <label class="col-sm-2 control-label">结束时间</label>
+		                  <div class="col-sm-4">
+		                    <input type="text" id="endTime" readonly class="form-control">
+		                  </div>
+		                </div>
+		                
+		            </form>
+		          </div>
+		          <div class="modal-footer">
+		            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+		            <button type="button" class="btn btn-primary exportNow">导出</button>
+		          </div>
+		        </div>
+		      </div>
+		</div>
+		<div class="modal fade" id="myModalexportSearch">
+		      <div class="modal-dialog" role="document">
+		        <div class="modal-content">
+		          <div class="modal-header">
+		            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		            <h4 class="modal-title">借阅查询</h4>
+		          </div>
+		          <div class="modal-body">
+		            <form class="form-horizontal">
+		                <div class="form-group">
+		                  <label class="col-sm-2 control-label">借阅人</label>
+		                  <div class="col-sm-4">
+		                    <input type="text" id="searchPerson" class="form-control">
+		                  </div>
+		                </div>
+		                
+		            </form>
+		          </div>
+		          <div class="modal-footer">
+		            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+		            <button type="button" class="btn btn-primary searchBookNow">查看</button>
+		          </div>
+		          <div class="personBook">
+			          	<table id="borTable" class="table table-bordered table-striped table-hover">
+					            <thead>
+					                <tr>
+					                    <th>借出时间</th>
+					                    <th>书名</th>
+					                </tr>
+					            </thead>
+					            <tbody>
+					            </tbody>
+					        </table>
+		          </div>
+		          
+		        </div>
+		      </div>
+		</div>
+		<script type="text/javascript" src="lib/js/layer.js"></script>
+		<script type="text/javascript" src="lib/js/goods.js"></script>
+	</body>
+</html>
