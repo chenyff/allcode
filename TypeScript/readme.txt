@@ -6,3 +6,5 @@ var message:string = "Hello World"
 console.log(message)
 
 通过tsc test.ts将这个文件转为js文件
+
+今天开始学习ts
