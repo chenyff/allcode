@@ -1,0 +1,8 @@
+<!-- 跳转走了可以回的来 -->
+<navigator url="../example/example" open-type="navigate">我想去例子页面可以回来</navigator>
+<!-- 跳转走了回不来 -->
+<navigator url="../example/example" open-type="redirect">我想去例子页面回不来</navigator>
+<!-- 上面两个都不能直接跳转到 tabbar页面 -->
+<navigator url="../profile/profile" open-type="switchTab">我想去我的页面</navigator>
+
+<MyHeader></MyHeader>

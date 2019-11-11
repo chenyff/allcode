@@ -1,0 +1,6 @@
+<swiper autoplay indicator-dots="true">
+  <swiper-item><image mode="widthFix" src="../../assets/img/banner/01.jpg"></image></swiper-item>
+  <swiper-item><image mode="widthFix" src="../../assets/img/banner/02.dpg"></image></swiper-item>
+  <swiper-item><image mode="widthFix" src="../../assets/img/banner/03.dpg"></image></swiper-item>
+  <swiper-item><image mode="widthFix" src="../../assets/img/banner/04.dpg"></image></swiper-item>
+</swiper>
