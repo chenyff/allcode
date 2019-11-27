@@ -8,6 +8,10 @@
 		/* #wrap{
 			height:1000px;
 		} */
+        *{
+            margin: 0;
+            padding: 0;
+        }
         #loadMore{
             display: none;
         }
@@ -15,7 +19,7 @@
 </head>
 <body>
 	<div id="wrap">
-		<ul>
+		<ul id="list">
             <li>测试上拉加载</li>
             <li>测试上拉加载</li>
             <li>测试上拉加载</li>
@@ -75,11 +79,20 @@
 		function getScrollHeight() {
 		    return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
 		}
-        var loadMore = document.getElementById('loadMore')
+        var loadMore = document.getElementById('loadMore');
+        var isload = false;
 		window.onscroll = function() {
-		    if(getScrollTop() + getClientHeight() == getScrollHeight()) {
+		    if(Math.ceil(getScrollTop() + getClientHeight()) == getScrollHeight() && !isload) {
+                
+                isload = true;
 		        loadMore.style.display = 'block';
-		        //此处发起AJAX请求
+                //此处发起AJAX请求
+                setTimeout(function(){
+                    isload = false;
+                    loadMore.style.display = 'none';
+                    document.getElementById('list').innerHTML+='<li>你们好</li><li>你们好</li><li>你们好</li><li>你们好</li><li>你们好</li>'
+                },3000)
+                console.log(123);
 		    }
 		}
  

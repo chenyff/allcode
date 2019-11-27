@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .animated {
+            -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+        }
+        @-webkit-keyframes fadeInRight {
+            from {
+                opacity: 0;
+                -webkit-transform: translate3d(100%, 0, 0);
+                transform: translate3d(100%, 0, 0);
+            }
+
+            to {
+                opacity: 1;
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        @keyframes fadeInRight {
+        from {
+            opacity: 0;
+            -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
+        }
+
+        to {
+            opacity: 1;
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
+        }
+
+        .fadeInRight {
+        -webkit-animation-name: fadeInRight;
+        animation-name: fadeInRight;
+        }
+        @keyframes fadeOutLeft {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+                -webkit-transform: translate3d(-100%, 0, 0);
+                transform: translate3d(-100%, 0, 0);
+            }
+        }
+
+        .fadeOutLeft {
+            -webkit-animation-name: fadeOutLeft;
+            animation-name: fadeOutLeft;
+        }
+        .gift{
+            height: 45px;
+            line-height: 45px;
+            background: url('data:image/png;base64,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') no-repeat;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button id="giveBtn">送礼物</button>
+    <!-- <p id="gift" class="gift animated" >骑马咯噔咯噔</p> -->
+    
+    <script src="tool.js"></script>
+    <script>
+        var giveBtn = document.getElementById('giveBtn');
+        giveBtn.onclick = function(){
+            tool.showMsg('陈宇飞刚才给了10块钱');
+        }
+    </script>
+</body>
+</html>
