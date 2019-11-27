@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>包装对象</title>
+</head>
+<body>
+    <script>
+        /* var str = 'hello';
+        String.prototype.lastValue = function(){
+            return this.charAt(this.length-1)
+        }
+        console.log(str.lastValue()) */
+        //实例对象与原型之间的链接 就叫原型链
+        function Aaa(){
+            //this.num = 20;
+        }//优先级要高于下面的这个
+        //Aaa.prototype.num = 10;
+        Object.prototype.num =30;
+        var a1 = new Aaa();
+        alert(a1.num);//20
+        
+    </script>
+</body>
+</html>

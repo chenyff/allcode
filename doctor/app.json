@@ -1,0 +1,39 @@
+{
+  "pages": [
+    
+    "pages/index/index",
+    "pages/list/list",
+    "pages/myself/myself",
+    "pages/question/question",
+    "pages/itemInfo/itemInfo",
+    "pages/search/search"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#47a86c",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#fff",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#686868",
+    "selectedColor": "#47a86c",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "dist/images/home.png",
+        "selectedIconPath": "dist/images/home-on.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/myself/myself",
+        "iconPath": "dist/images/wode.png",
+        "selectedIconPath": "dist/images/wode-on.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

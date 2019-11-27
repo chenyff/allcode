@@ -4,52 +4,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-    message:'陈宇飞',
-    userInfo:{},
-    isShow:false
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //判断用户是否授权了
-    this.handleUserInfoFn()
+    
   },
-  handleUserInfoFn(){
-    wx.getSetting({
-      success: (data) => {
-        if (data.authSetting['scope.userInfo']) {
-          //用户已经授权
-          this.setData({
-            isShow: false
-          })
-        } else {
-          //没有授权
-          this.setData({
-            isShow: true
-          })
-        }
-      }
-    })
-    wx.getUserInfo({
-      success: data => {
-        this.setData({
-          userInfo: data.userInfo
-        })
-      }
+  //点击菜单要跳走
+  jumpFn:function(event){
+    
+    wx.navigateTo({
+      url: '/pages/list/list?title=' + event.target.dataset.where + '&pageid=' + event.target.dataset.id,
     })
   },
-  handleGetUserInfo(data){
-      if(data.detail.rawData){
-        //用户点击了允许
-        this.handleUserInfoFn()
-      }
-  },
-  //点击开启小程序之旅
-  clickJump(){
-    wx.redirectTo({
-      url: '/pages/list/list',
+  viewSearch:function(){
+    wx.navigateTo({
+      url: '/pages/search/search',
     })
   },
   /**

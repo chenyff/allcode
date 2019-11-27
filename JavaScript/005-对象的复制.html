@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>对象的复制</title>
+</head>
+<body>
+    <script>
+    var a = {
+        name:'小明'
+    }
+    // var b = a;
+    var b = {};
+    /* for(var attr in a){
+        b[attr] = a[attr]
+    } */
+    extend(b,a)
+    b.name = '小妹妹';
+    console.log(a.name)
+    
+    //也可以把上面的内容封装成函数
+    function extend(o1,o2){
+        for(var attr in o2){
+            o1[attr] = o2[attr]
+        }
+    }
+    </script>
+</body>
+</html>

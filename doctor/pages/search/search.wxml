@@ -1,0 +1,3 @@
+<view class="search-bar">
+    <input class="search-txt" placeholder-class="search-txt-plc" confirm-type="search" auto-focus placeholder="请输入关键词搜索" type="text"/>
+</view>

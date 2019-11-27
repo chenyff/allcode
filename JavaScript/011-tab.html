@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选项卡组件</title>
+    <style>
+      #tab div,#tab2 div,#tab3 div,#tab4 div{
+          width: 200px;
+          height: 200px;
+          border: 1px solid #000000;
+          display: none;
+      }
+      .active{
+          background: none;
+          outline: none;
+      }
+    </style>
+    <script src="./jquery-1.11.1.min.js"></script>
+    <script>
+        $(function(){
+            var tab = new Tab();
+            tab.init('tab',{})
+            var tab2 = new Tab();
+            tab2.init('tab2',{
+                event:'mouseover'
+            })
+            var tab3 = new Tab();
+            tab3.init('tab3',{
+                event:'mouseover',
+                delay:200
+            })
+            var tab4 = new Tab();
+            tab4.init('tab4',{});
+            tab4.nowSel(2)
+        })
+        function Tab(){
+            this.oParent = null;
+            this.aBtn = null;
+            this.aItem = null;
+            this.settings = {
+                event:'click'
+            }
+        }
+        Tab.prototype.init = function(oParent,opt){
+            $.extend(this.settings,opt);
+            this.oParent = $('#'+oParent);
+            this.aBtn = this.oParent.find('button');
+            this.aItem = this.oParent.find('div');
+            this.change();
+        }
+        Tab.prototype.change = function(){
+            let that = this;
+            let timer = null;
+            this.aBtn.on(this.settings.event,function(){
+                if(that.settings.event == 'mouseover' && that.settings.delay){
+                    timer = setTimeout(()=>{
+                        show(this)
+                    },that.settings.delay)
+                }else{
+                    show(this)
+                }
+            }).mouseout(function(){
+                clearTimeout(timer)
+            })
+            function show(obj){
+                $(obj).addClass('active').siblings().removeClass('active')
+                that.aItem.eq($(obj).index()).show().siblings('div').hide()
+            }
+        }
+        Tab.prototype.nowSel = function(index){
+                this.aBtn.eq(index).addClass('active').siblings().removeClass('active')
+                this.aItem.eq(index).show().siblings('div').hide()
+        }
+    
+    </script>
+</head>
+<body>
+    <div id="tab">
+        <button class="active">男装</button>
+        <button>女装</button>
+        <button>儿童装</button>
+        <div style="display: block;">这里是男装</div>
+        <div>这里是女装</div>
+        <div>这里是儿童装</div>
+    </div>
+    <div id="tab2">
+        <button class="active">男装</button>
+        <button>女装</button>
+        <button>儿童装</button>
+        <div style="display: block;">这里是男装</div>
+        <div>这里是女装</div>
+        <div>这里是儿童装</div>
+    </div>
+    <div id="tab3">
+        <button class="active">男装</button>
+        <button>女装</button>
+        <button>儿童装</button>
+        <div style="display: block;">这里是男装</div>
+        <div>这里是女装</div>
+        <div>这里是儿童装</div>
+    </div>
+    <div id="tab4">
+        <button class="active">男装</button>
+        <button>女装</button>
+        <button>儿童装</button>
+        <div style="display: block;">这里是男装</div>
+        <div>这里是女装</div>
+        <div>这里是儿童装</div>
+    </div>
+</body>
+</html>

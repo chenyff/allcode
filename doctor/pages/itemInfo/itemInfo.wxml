@@ -1,0 +1,22 @@
+<view class="item_info">
+  <view class="item">名称：
+       <view>
+          <text>{{itemInfo.name}}</text>
+       </view>
+  </view>
+  <view class="item" wx:if='{{itemInfo.content}}'>处方：
+       <view>
+          <text>{{itemInfo.content}}</text>
+       </view>
+  </view>
+  <view class="item">介绍：
+       <view>
+          <text>{{itemInfo.desc}}</text>
+       </view>
+  </view>
+  <view class="item">注意事项：
+       <view>
+          <text>{{itemInfo.careful}}</text>
+       </view>
+  </view>
+</view>

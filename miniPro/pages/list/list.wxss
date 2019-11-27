@@ -1,0 +1,10 @@
+/* pages/list/list.wxss */
+@import '/pages/template/list-template.wxss';
+.banner{
+  width: 100%;
+  height: 400rpx;
+}
+.banner image{
+  width: 100%;
+  height: 100%;
+}

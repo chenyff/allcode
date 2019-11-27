@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hasOwnProperty</title>
+</head>
+<body>
+    <script>
+       var arr = [];
+       arr.num = 12;
+       Array.prototype.num2 = 20;
+       console.log(arr.hasOwnProperty('num'));  //true
+       console.log(arr.hasOwnProperty('num2'));  //false
+       //判断是不是自身的属性  只能是自己用的  私有的
+    </script>
+</body>
+</html>

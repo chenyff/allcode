@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>类式继承</title>
+</head>
+<body>
+    <script>
+       function Aaa(){
+           this.name = '小明'
+       }
+       Aaa.prototype.showName = function(){
+           alert(this.name)
+       }
+       function Bbb(){
+
+       }
+       Bbb.prototype = new Aaa();
+       Bbb.prototype.constructor = Bbb;
+       var b1 = new Bbb();
+      /* b1.showName(); */
+      alert(b1.constructor)
+    </script>
+</body>
+</html>

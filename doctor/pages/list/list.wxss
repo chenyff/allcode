@@ -1,0 +1,10 @@
+/* pages/list/list.wxss */
+.item_list view{
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1px solid #eee;
+  padding-left:15rpx; 
+  color: #111;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABMElEQVRYR+3WsWrDMBDG8dO7+DtDS98ic+lUMnQIdOgQ6JAp2ZKtnTIEMmRopwxth7yPpWfxBW/GiOYknQmFerXN/+dDEnZ05ctduU9/A+C9vxeRCTO/Wk9MNYEQwqeIzNq23dR1vbZEqADe+xsi+iaiW2uECtB98VgINWAsRBJgDEQyYIggojWATe7CzAJEEG8AVjmIbEAEsQWwSEUUASKIPYB5CqIYEEF8AHjWIkwAEcQRwJMGYQYYIkTkwMwvlxCjAYhItSjNAP2jmoh+ADxe+vruvgkgN24CKIkXA0rjRQCLeDbAKp4FsIwnAwbxLwBTzVb77Rn1NhzEk877YkA/7pzbVVVl9nuumkAI4SQiDyLyzszL0rH331cBmqaZOOfuAGwt48mL0Dr+D+gmcAajwJ4hz27Q2AAAAABJRU5ErkJggg==) no-repeat right center;
+  background-size: 32rpx 32rpx;
+}

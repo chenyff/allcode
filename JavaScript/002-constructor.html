@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>constructor</title>
+</head>
+<body>
+    <script>
+        function Gou(){
+
+        }
+        var dog = new Gou(); 
+        alert(dog.constructor)   //Gou
+        var arr = [];
+        console.log(arr.constructor);   //Array
+        //每个原型都会自动添加constructor属性 
+        //for in 循环不到系统自带的属性
+        
+    </script>
+</body>
+</html>

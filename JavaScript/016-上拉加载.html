@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Document</title>
+	<style>
+		/* #wrap{
+			height:1000px;
+		} */
+        #loadMore{
+            display: none;
+        }
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<ul>
+            <li>测试上拉加载</li>
+            <li>测试上拉加载</li>
+            <li>测试上拉加载</li>
+            <li>测试上拉加载</li>
+            <li>测试上拉加载</li>
+            <li>测试上拉加载</li>
+            <li>测试上拉加载</li>
+            <li>测试上拉加载</li>
+            <li>测试上拉加载</li>
+            <li>测试上拉加载</li>
+            <li>测试上拉加载</li>
+            <li>测试上拉加载</li>
+            <li>测试上拉加载</li>
+            <li>测试上拉加载</li>
+            <li>测试上拉加载</li>
+            <li>测试上拉加载</li>
+            <li>测试上拉加载</li>
+            <li>测试上拉加载</li>
+            <li>测试上拉加载</li>
+            <li>测试上拉加载</li>
+            <li>测试上拉加载</li>
+            <li>测试上拉加载</li>
+            <li>测试上拉加载</li>
+            <li>测试上拉加载</li>
+            <li>测试上拉加载</li>
+            <li>测试上拉加载</li>
+            <li>测试上拉加载</li>
+            <li>测试上拉加载</li>
+            <li>测试上拉加载</li>
+            <li>测试上拉加载</li>
+        </ul>
+		<p id="loadMore">更多内容正在加载。。。</p>
+	</div>
+	<script>
+		
+		//获取滚动条当前的位置
+		function getScrollTop() {
+		    var scrollTop = 0;
+		    if(document.documentElement && document.documentElement.scrollTop) {
+		        scrollTop = document.documentElement.scrollTop;
+		    } else if(document.body) {
+		        scrollTop = document.body.scrollTop;
+		    }
+		    return scrollTop;
+		}
+		//获取当前可视范围的高度  
+		function getClientHeight() {
+		    var clientHeight = 0;
+		    if(document.body.clientHeight && document.documentElement.clientHeight) {
+		        clientHeight = Math.min(document.body.clientHeight, document.documentElement.clientHeight);
+		    } else {
+		        clientHeight = Math.max(document.body.clientHeight, document.documentElement.clientHeight);
+		    }
+		    return clientHeight;
+		}
+		//获取文档完整的高度 
+		function getScrollHeight() {
+		    return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+		}
+        var loadMore = document.getElementById('loadMore')
+		window.onscroll = function() {
+		    if(getScrollTop() + getClientHeight() == getScrollHeight()) {
+		        loadMore.style.display = 'block';
+		        //此处发起AJAX请求
+		    }
+		}
+ 
+	</script>
+</body>
+</html>

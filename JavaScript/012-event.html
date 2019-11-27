@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+     #div1{
+         width: 200px;
+         height: 200px;
+         background: gray;
+         display: none;
+     }
+    </style>
+</head>
+<body>
+    <button id="btn1">显示</button>
+    <div id="div1">
+
+    </div>
+    <script>
+        // 现在的火狐好像已经兼容event了  可能会存在一些低版本的  所以还是加上兼容吧
+       window.onload = function(){
+           /* document.onclick = function(ev){
+               var event = ev || event;
+           } */
+           var oBtn = document.getElementById('btn1');
+           var oDiv = document.getElementById('div1');
+           oBtn.onclick = function(ev){
+               var oEvent = ev || event;
+               oDiv.style.display = 'block';
+               oEvent.cancelBubble = true;
+           }
+           document.onclick = function(){
+            oDiv.style.display = 'none';
+           }
+       }
+    </script>
+</body>
+</html>

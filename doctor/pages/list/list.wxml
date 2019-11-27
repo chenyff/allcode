@@ -1,0 +1,5 @@
+<view class="item_list">
+    <view wx:for="{{itemList}}" wx:key="{{index}}" data-info="{{item}}" bindtap="jumpInfo">
+      {{index+1}}、{{item.name}}
+    </view>
+</view>

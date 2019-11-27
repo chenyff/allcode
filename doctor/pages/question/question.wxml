@@ -1,0 +1,10 @@
+<view class="ques_main">
+   <view class="ques_title">意见与建议</view>
+   <view class="ques_txt">
+        <textarea placeholder="请填写10个字以上的问题描述以便于我提供更好的服务" placeholder-style="font-size:26rpx;" maxlength="200"></textarea>
+   </view>
+   <view class="ques_title">联系方式<input class="concat" type="text" placeholder="邮箱或者微信"/></view>
+    <view class="sub_btn">
+      <button type="primary" bindtap="subFn">提交</button>
+    </view>
+</view>

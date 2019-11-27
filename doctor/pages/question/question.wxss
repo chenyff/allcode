@@ -1,0 +1,27 @@
+/* pages/question/question.wxss */
+.ques_main{
+  padding: 0 15rpx;
+  font-size: 28rpx;
+}
+.ques_title{
+  height: 60rpx;
+  line-height: 60rpx;
+  border-bottom: 1px solid #eee;
+  display: flex;
+}
+.ques_txt{
+  margin-top: 10rpx;
+  height: 240rpx;
+  overflow-y: auto; 
+  border-bottom: 1px solid #eee;
+}
+.ques_txt textarea{
+  width: 100%;
+}
+.concat{
+  padding-top: 8rpx;
+  margin-left: 20rpx;
+}
+.sub_btn{
+  margin-top: 100rpx;
+}
