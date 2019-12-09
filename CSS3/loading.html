@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>loading</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		.loading{
+			width: 40px;
+			height: 40px;
+			background: green;
+			border-radius: 100%;
+			margin: 100px auto;
+			animation: fadeOut 1.0s infinite ease-in-out;
+		}
+		@keyframes fadeOut{
+			from {transform: scale(0.0);}
+			to{transform: scale(1.0);opacity: 0;}
+		}
+	</style>
+</head>
+<body>
+	<div class="loading"></div>
+</body>
+</html>

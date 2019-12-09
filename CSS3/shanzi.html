@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>扇子</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.shanzi{
+				width: 300px;
+				margin: 200px auto;
+				position: relative;
+			}
+			.shanzi div{
+				width: 200px;
+				height: 150px;
+				position: absolute;
+				border: 10px solid #fff;
+				box-sizing: border-box;
+				box-shadow: 4px 4px 3px rgba(0,0,0,0.2);
+				transform-origin: center 400px;
+				transition: transform .7s ease;
+			}
+			.shanzi div:first-child{
+				transform: rotate(5deg);
+			}
+			.shanzi div:last-child{
+				transform: rotate(-5deg);
+			}
+			.shanzi:hover div:first-child{
+				transform: rotate(25deg);
+			}
+			.shanzi:hover div:last-child{
+				transform: rotate(-25deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="shanzi">
+			<div style="background: darkred;"></div>
+			<div style="background: #002A80;"></div>
+			<div style="background: #008000;"></div>
+		</div>
+	</body>
+</html>
