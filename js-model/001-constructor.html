@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+<body>
+    <script>
+        //构造器模式
+        /* class Student{
+            constructor(name,age,sex,address){
+                this.name = name;
+                this.age = age;
+                this.sex = sex;
+                this.address = address;
+            }
+            addfn(){
+                return this.name+'今年'+this.age+'岁，来自'+this.address
+            }
+        } */
+        function Student(name,age,sex,address){
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+            this.address = address;
+            /* this.addfn =function(){
+                return this.name+'今年'+this.age+'岁，来自'+this.address
+            } */
+        }
+        Student.prototype.addfn = function(){
+            return this.name+'今年'+this.age+'岁，来自'+this.address
+        }
+        var cyf = new Student('陈宇飞',20,'男','山西临汾');
+        var gl = new Student('高丽',18,'女','山西临汾');
+        console.log(gl)
+        console.log(gl.addfn())
+    
+    </script>
+</body>
+</html>

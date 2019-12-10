@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>抽象的工厂模式</title>
+</head>
+<body>
+    <script>
+        function Student(name,job){
+            this.name = name;
+            this.job = job;
+        }
+        function Teacher(){
+            this.name = '我是一个老师';
+        }
+        function factoryStudent(name,job){
+            return new Student(name,job);
+        }
+        function factoryTeacher(){
+            return new Teacher();
+        }
+        function userProducer(user){
+            switch(user){
+                case 'student':
+                    return factoryStudent;
+                    break;
+                case 'teacher':
+                    return factoryTeacher;
+                    break;
+                default:
+                    throw '没有这个工厂'
+            }
+        }
+        var factory = userProducer('student')
+        var t = factory('陈宇飞','前端开发');
+        console.log(t);
+    
+    
+    </script>
+</body>
+</html>

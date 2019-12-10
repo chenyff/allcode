@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>另外一个小栗子</title>
+</head>
+<body>
+    <form id="create">
+        <div>
+            姓名：
+            <input type="text" name="name" autofocus>
+        </div>
+        <div>
+            性别：
+            <input type="radio" value="女" name="sex" checked>女
+            <input type="radio" value="男" name="sex">男
+        </div>
+        <div>
+            头发长度：
+            <input type="number" name="hairLength">
+        </div>
+        <button>创建学生</button>
+    </form>
+    <script>
+       var createDom = document.getElementById('create');
+       init();
+       function init(){
+            createDom.addEventListener('submit',function(e){
+                e.preventDefault()
+                var name = document.querySelector('[name=name]').value;
+                var sex = document.querySelector('[name=sex]:checked').value;
+                var hairLength = document.querySelector('[name=hairLength]').value;
+                
+                try{
+                    var builder = new StudentBuilder();
+                    builder.setName(name);
+                    builder.setSex(sex);
+                    builder.setHairLength(hairLength);
+                    var student = builder.build();
+                    console.log(student);
+                }catch(e){
+                    console.log(e);
+                }
+                
+            })
+       }
+       function Student(){
+       }
+       function StudentBuilder(){
+           this.student = new Student();
+       }
+       StudentBuilder.prototype.setName = function(name){
+           this.student.name = name;
+       }
+       StudentBuilder.prototype.setSex = function(sex){
+           if(sex != '男' && sex != '女'){
+               throw '好玩不'
+           }
+           this.student.sex = sex;
+       }
+       StudentBuilder.prototype.setHairLength = function(hairLength){
+           if(
+               (this.student.sex == '男' && hairLength > 2) ||
+               (this.student.sex == '女' && hairLength > 25)
+           ){
+               throw '回去理发'
+           }
+           this.student.hairLength = hairLength;
+       }
+       StudentBuilder.prototype.build = function(){
+           return this.student;
+       }
+    </script>
+</body>
+</html>

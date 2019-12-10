@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div>采购余额：<span id="balance">100</span>元</div>
+        <div class="page a">
+            部门A：
+            <input type="number">
+            <button class="add">+</button>
+            <button class="sub">-</button>
+        </div>
+        <div class="page b">
+            部门B：
+            <input type="number">
+            <button class="add">+</button>
+            <button class="sub">-</button>
+        </div>
+    </div>
+    <script>
+        var balance = document.getElementById('balance');
+      init();
+      function init(){
+          var a = new Create('.page.a')
+          var b = new Create('.page.b')
+      }
+      function Create(seletor){
+          var resource = new Resource();
+          var _this = this;
+          this.el = document.querySelector(seletor);
+          this.elAdd = this.el.querySelector('.add');
+          this.elSub = this.el.querySelector('.sub');
+          this.elInp = this.el.querySelector('input');
+          this.elAdd.addEventListener('click',function(){
+               resource.add(_this.elInp.value*1);
+               _this.elInp.value = '';
+          })
+          this.elSub.addEventListener('click',function(){
+               resource.sub(_this.elInp.value*1)
+               _this.elInp.value = '';
+          })
+      }
+      function Resource(){
+           if(Resource.instance){
+                return Resource.instance
+           }else{
+               this.balance = 100;
+                Resource.instance = this;
+           }
+      }   
+      Resource.prototype.add = function(num){
+            this.changeBalace(num)
+      } 
+      Resource.prototype.sub = function(num){
+            this.changeBalace(-num)
+      } 
+      Resource.prototype.changeBalace = function(num){
+          if(!num){
+              return
+          }
+          this.balance+=num;
+          renderBalance(this.balance);
+      }
+      function renderBalance(money){
+        balance.innerText = money;
+      }
+    </script>
+</body>
+</html>

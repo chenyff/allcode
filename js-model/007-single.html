@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>单例模式</title>
+</head>
+<body>
+    <script>
+        
+        //这种方法不行  数据不同步
+        /* function Resource(){
+            this.balance = 100;
+        }    
+        var r = new Resource();
+        console.log(r)
+        r.balance = 50;
+        console.log(r)
+
+        var r2 = new Resource();
+        console.log(r2); */
+        //这种可以  但是代码乱
+        /* var init = {
+            balance : 100
+        }
+        function Resource(){
+            return init;
+        }    
+        var r = new Resource();
+        console.log(r)
+        r.balance = 50;
+        console.log(r)
+
+        var r2 = new Resource();
+        console.log(r2); */
+        function Resource(){
+           if(Resource.instance){
+                return Resource.instance
+           }else{
+               this.balance = 100;
+                Resource.instance = this;
+           }
+        }    
+        var r = new Resource();
+        console.log(r)
+        r.balance = 50;
+        console.log(r)
+
+        var r2 = new Resource();
+        console.log(r2);
+    </script>
+</body>
+</html>
