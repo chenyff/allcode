@@ -77,7 +77,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "http://www.fengcaimi.cn";
 /******/
 /******/
 /******/ 	// Load entry module and return exports
@@ -90,32 +90,34 @@
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("console.log('hello 你好啊');\n\n__webpack_require__(/*! ./main.css */ \"./src/main.css\");\n\n__webpack_require__(/*! ./small.less */ \"./src/small.less\");\n\nvar username = \"\\u9648\\u5B87\\u98DE\";\n\nvar sayhi = function sayhi() {\n  console.log('hi');\n};\n\n//# sourceURL=webpack:///./src/index.js?");
-
-/***/ }),
-
-/***/ "./src/main.css":
-/*!**********************!*\
-  !*** ./src/main.css ***!
-  \**********************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/main.css?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _other_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./other.png */ \"./src/other.png\");\n// import $ from 'jquery';\n// import $ from 'expose-loader?$!jquery';\n//expose-loader  暴露全局的loader\n//pre  前面执行的loader  normal 普通的loader 内联loader  后置postloader\n//console.log($);\n\n/* console.log('hello 你好啊')\r\nrequire('./main.css')\r\nrequire('./small.less')\r\nlet username = `陈宇飞`;\r\nlet sayhi = ()=>{\r\n    console.log('hi')\r\n} */\n//webpack 打包图片\n//这种的会报错 找不见图片\n\n/* let image = new Image();\r\nimage.src = './other.png';\r\ndocument.body.appendChild(image) */\n\nvar image = new Image();\nimage.src = _other_png__WEBPACK_IMPORTED_MODULE_0__[\"default\"];\ndocument.body.appendChild(image);\n\n__webpack_require__(/*! ./other.css */ \"./src/other.css\");\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
-/***/ "./src/small.less":
-/*!************************!*\
-  !*** ./src/small.less ***!
-  \************************/
+/***/ "./src/other.css":
+/*!***********************!*\
+  !*** ./src/other.css ***!
+  \***********************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/small.less?");
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/other.css?");
+
+/***/ }),
+
+/***/ "./src/other.png":
+/*!***********************!*\
+  !*** ./src/other.png ***!
+  \***********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"/img/ad5f9f60b3b21af152e0216af9ed1f73.png\");\n\n//# sourceURL=webpack:///./src/other.png?");
 
 /***/ })
 

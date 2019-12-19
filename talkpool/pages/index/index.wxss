@@ -1,0 +1,48 @@
+.poolBox{
+  padding: 0 20rpx;
+}
+.public_title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20rpx 0;
+}
+.public_title .public_line{
+  height: 2rpx;
+  width: 100rpx;
+  background: #666;
+}
+.public_title text{
+  font-size: 28rpx;
+  margin: 0 10rpx;
+}
+.pool_item{
+  background: #8ED145;
+  border-radius: 8rpx;
+}
+.pool_itle{
+  height: 50rpx;
+  line-height: 50rpx;
+  padding-left:10rpx;
+  font-size: 28rpx;
+  background: #8ED145;
+  color: #fff;
+}
+.pool_users{
+  padding: 10rpx 0;
+  background: #fff;
+}
+.pool_users image{
+  border-radius: 50%;
+  width: 80rpx;
+  height: 80rpx;
+  margin: 10rpx;
+}
+.pool_users_num{
+  height: 50rpx;
+  line-height: 50rpx;
+  padding-left:10rpx;
+  font-size: 28rpx;
+  background: #8ED145;
+  color: #fff;
+}

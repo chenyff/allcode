@@ -1,0 +1,29 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/hello/hello"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#8ED145",
+    "navigationBarTitleText": "Talk Pool",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "池子",
+      "iconPath": "assets/images/blob.png",
+      "selectedIconPath": "assets/images/blob-on.png"
+    },
+    {
+      "pagePath": "pages/index/index",
+      "text": "我的",
+      "iconPath": "assets/images/wode.png",
+      "selectedIconPath": "assets/images/wode-on.png"
+    }]
+  }
+}
