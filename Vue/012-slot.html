@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>slot-插槽</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="box">
+        <child>
+            <h2>冯小刚</h2>
+        </child>
+        <swiper>
+            <ul>
+                <li v-for="data in datalist">{{data}}</li>
+            </ul>
+        </swiper>
+        <swiper>
+            <ul>
+                <li v-for="name in namelist">{{name}}</li>
+            </ul>
+        </swiper>
+    </div>
+    <script>
+        Vue.component('child',{
+            template:`
+            <div>
+            还有谁
+            <slot></slot>
+            </div>`
+        })
+        Vue.component('swiper',{
+            template:`
+              <div>
+                 <slot></slot>
+              </div>
+            `
+        })
+        new Vue({
+            el:'#box',
+            data:{
+                datalist:[111,222,333],
+                namelist:['陈宇飞','陈晓飞','陈盼飞']
+            }
+        })
+    </script>
+</body>
+</html>

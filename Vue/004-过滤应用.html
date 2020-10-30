@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>过滤应用</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="box">
+        <input type="text" v-model="mySearch" @input="handleInp()">
+        <ul>
+            <li v-for="data in filterArr">
+                {{data}}
+            </li>
+        </ul>
+    </div>
+    <script>
+       new Vue({
+           el:'#box',
+           data:{
+               mySearch:'',
+               datalist:['aaa','bbb','ccc','add','bcc','cca']
+           },
+           computed: {
+               filterArr(){
+                   return this.datalist.filter(item=>item.indexOf(this.mySearch)>-1)
+               }
+           },
+       })
+    </script>
+</body>
+</html>

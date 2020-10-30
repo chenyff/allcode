@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动态组件</title>
+    <style>
+     *{
+         margin: 0;padding: 0;
+     }
+     ul{list-style: none;}
+     footer{
+         position: fixed;
+         bottom: 0;
+         left: 0;
+         width: 100%;
+         background: #999;
+     }
+     footer ul{
+        display: flex;
+        height: 50px;
+        line-height: 50px;
+        justify-content: space-around;
+     }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="box">
+        <keep-alive>
+            <component :is="who"></component>
+        </keep-alive>
+        
+        <footer>
+            <ul>
+                <li>
+                    <a href="javascript:;" @click="who='home'">首页</a>
+                </li>
+                <li>
+                    <a href="javascript:;" @click="who='list'">列表</a>
+                </li>
+                <li>
+                    <a href="javascript:;" @click="who='my'">我的</a>
+                </li>
+            </ul>
+        </footer>
+    </div>
+    <script>
+       new Vue({
+           el:'#box',
+           data:{
+               who:'home'
+           },
+           components:{
+               'home':{
+                   template:`<div>我是首页<input type="text"></div>`
+               },
+               'list':{
+                   template:`<div>我是列表</div>`
+               },
+               'my':{
+                   template:`<div>我是我的</div>`
+               }
+           }
+       })
+    </script>
+</body>
+</html>

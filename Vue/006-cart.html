@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>购物车</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="box">
+        全选：<input type="checkbox" v-model="isCheckAll" @change="checkAllFn()">
+        <ul>
+            <li v-for="item in datalist">
+                <input type="checkbox" v-model="checkgroup" :value="item" @change="itemCheckFn()">
+                {{item}}
+                <button @click="handleDelFn(item)">-</button>
+                {{item.number}}
+                <button @click="item.number++">+</button>
+            </li>
+        </ul>
+        {{checkgroup}}
+        <p>总金额：{{getSum()}}</p>
+    </div>
+    <script>
+       new Vue({
+           el:'#box',
+           data:{
+               checkgroup:[],
+               isCheckAll:false,
+               datalist:[
+                   {
+                       name:'iphone 11pro max',
+                       price:8976,
+                       number:1,
+                       id:1
+                   },
+                   {
+                       name:'华为Nova 5',
+                       price:5656,
+                       number:1,
+                       id:2
+                   },
+                   {
+                       name:'小米 9 plus',
+                       price:3000,
+                       number:1,
+                       id:3
+                   }
+               ]
+           },
+           methods: {
+            getSum:function(){
+                var sum = 0;
+                for(var i in this.checkgroup){
+                    sum+=this.checkgroup[i].number*this.checkgroup[i].price
+                }
+                return sum;
+            },
+            checkAllFn:function(){
+                if(this.isCheckAll){
+                    this.checkgroup = this.datalist;
+                }else{
+                    this.checkgroup = [];
+                }
+            },
+            itemCheckFn:function(){
+                if(this.checkgroup.length == this.datalist.length){
+                    this.isCheckAll = true;
+                }else{
+                    this.isCheckAll = false;
+                }
+            },
+            handleDelFn:function(item){
+                var number = item.number--;
+                if(number == 1){
+                    item.number = 1;
+                }
+            }
+           },
+       })
+    </script>
+</body>
+</html>

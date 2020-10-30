@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="box">
+        <button @click="changeStates()">点击我切换状态</button>
+        <div v-if="isHappy">如果高兴你就哈哈哈</div>
+        <div v-else="isHappy">如果不高兴你就呜呜呜</div>
+    </div>
+    <script>
+       new Vue({
+           el:'#box',
+           data:{
+               isHappy:true
+           },
+           methods: {
+               changeStates:function(){
+                    this.isHappy = !this.isHappy;
+               }
+           },
+       })
+    </script>
+</body>
+</html>

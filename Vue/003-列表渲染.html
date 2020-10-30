@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="box">
+        <ul>
+            <li v-for="name in nameList">
+                {{name}}
+            </li>
+        </ul>
+        <ul>
+            <li v-for="(name,index) in nameList">
+                {{name}}--{{index}}
+            </li>
+        </ul>
+        <ul>
+            <li v-for="(attr,val) in nameObj">
+                {{attr}}--{{val}}
+            </li>
+        </ul>
+    </div>
+    <script>
+       new Vue({
+           el:'#box',
+           data:{
+               nameList:['陈宇飞','高丽','陈子恩'],
+               nameObj:{
+                   job:'前端',
+                   age:'23',
+                   sex:'boy'
+               }
+           }
+       })
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表单元素</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="box">
+        <input type="text" v-model="inputVal" ><span>{{inputVal}}</span>
+        <br/>
+        <input type="checkbox" v-model="isChecked">我已阅读并同意该协议
+        <br/>
+        我的爱好有：
+        <input type="checkbox" v-model="hobbies" value="吃饭">吃饭
+        <input type="checkbox" v-model="hobbies" value="睡觉">睡觉
+        <input type="checkbox" v-model="hobbies" value="看娃">看娃
+        <div>{{hobbies}}</div>
+        <input type="radio" v-model="hobby" value="吃饭">吃饭
+        <input type="radio" v-model="hobby" value="睡觉">睡觉
+        <input type="radio" v-model="hobby" value="看娃">看娃
+        <div>{{hobby}}</div>
+    </div>
+    <script>
+       new Vue({
+           el:'#box',
+           data:{
+               inputVal:'',
+               isChecked:false,
+               hobbies:[],
+               hobby:''
+           }
+       })
+    </script>
+</body>
+</html>

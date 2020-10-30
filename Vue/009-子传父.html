@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>过滤应用</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="box">
+        我是父组件
+        <!-- 不加括号的话 默认在下方接收参数  加括号的话  形参得写成 $event-->
+        <parent @parentfn="handleEvent($event)"></parent>
+    </div>
+    <script>
+        Vue.component('parent',{
+            template:`
+              <div>
+                  <button @click="sendParent()">点击我给父组件传东西</button>
+              </div>
+            `,
+            data() {
+                return {
+                    childname:'陈子恩'
+                }
+            },
+            methods: {
+                sendParent(){
+                    this.$emit("parentfn",this.childname)
+                }
+            },
+        })
+       new Vue({
+           el:'#box',
+           methods: {
+            handleEvent:function(qqq){
+                console.log('钱呢',qqq)
+            }
+           },
+       })
+    </script>
+</body>
+</html>

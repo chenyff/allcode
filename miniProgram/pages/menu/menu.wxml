@@ -1,0 +1,13 @@
+<!--pages/menu/menu.wxml-->
+<view class="head">
+    <view class="left" catchtap="goBack">
+      goBack
+    </view>
+    <view class="center _30f2b4d">
+      菜单
+    </view>
+    <view class="right _30f2b4d">
+      <!-- 保护右上角胶囊不被污染 -->
+    </view>
+</view>
+<view class="empty-box"></view>
