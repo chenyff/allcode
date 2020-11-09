@@ -11,3 +11,7 @@
     </view>
 </view>
 <view class="empty-box"></view>
+<view>
+   <image class="pic" src="../../static/images/i-more.png"></image>
+   <text>更多</text>
+</view>

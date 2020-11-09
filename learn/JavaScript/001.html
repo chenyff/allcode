@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>观察者模式</title>
+</head>
+<body>
+    <script>
+        const user = {
+            update(){
+                console.log('公众号更新了')
+            }
+        }
+        //公众号
+        const publicAccount = {
+            //关注公众号的用户列表
+            followList:[user],
+            //公众号更新时候调用的通知函书
+            notify(){
+                const len = this.followList.length;
+                if(len > 0){
+                    //通知已关注该公众号的每个用户，有内容更新
+                    for(let user of this.followList){
+                        user.update()
+                    }
+                }
+            }
+        }
+        publicAccount.notify()
+    </script>
+</body>
+</html>

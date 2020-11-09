@@ -1,4 +1,4 @@
-// pages/myself/myself.js
+// pages/push/push.js
 Page({
 
   /**

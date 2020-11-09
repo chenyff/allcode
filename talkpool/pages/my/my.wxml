@@ -1,0 +1,17 @@
+<view class="my-wrap">
+    <view class="my-head">
+       <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+       <view class="userInfo">
+        <text class="userName">{{userInfo.nickName}}</text>
+       </view>
+    </view>
+    <view class="my-menu">
+      <view class="my-menu-item">我的收藏</view>
+      <view class="my-menu-item">我的发布</view>
+    </view>
+</view>
+
+
+
+
+<!-- <button bindgetuserinfo="handleGetUserInfo" style="display:{{isShow?'block':'none'}}" open-type="getUserInfo">获取用户信息</button> -->

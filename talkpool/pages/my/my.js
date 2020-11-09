@@ -19,6 +19,7 @@ Page({
   handleUserInfoFn(){
     wx.getSetting({
       success: (data) => {
+        console.log(data)
         if (data.authSetting['scope.userInfo']) {
           //用户已经授权
           this.setData({
@@ -34,6 +35,7 @@ Page({
     })
     wx.getUserInfo({
       success: data => {
+        console.log(data);
         this.setData({
           userInfo: data.userInfo
         })

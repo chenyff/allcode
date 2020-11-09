@@ -1,22 +1,4 @@
 <view class="poolBox">
-  <view class="public_title">
-      <view class="public_line"></view>
-      <text>过往</text>
-      <view class="public_line"></view>
-  </view>
-  <view class="pool_list">
-     <view class="pool_item">
-        <view class="pool_itle">2019-12-19</view>
-        <view class="pool_users">
-              <image src="../../assets/images/user1.jpg"></image>
-              <image src="../../assets/images/user2.jpg"></image>
-              <image src="../../assets/images/user3.jpg"></image>
-        </view>
-        <view class="pool_users_num">
-            <text>在今天共有3人留下了足迹</text>
-        </view>
-     </view>
-       
-  </view>
+
     
 </view>

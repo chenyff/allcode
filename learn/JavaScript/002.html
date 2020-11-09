@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>观察者模式</title>
+</head>
+<body>
+    <script>
+        //公众号
+        const publicAccount = {
+            //关注公众号的用户列表
+            followList:[],
+            //公众号更新时候调用的通知函书
+            notify(){
+                const len = this.followList.length;
+                if(len > 0){
+                    //通知已关注该公众号的每个用户，有内容更新
+                    for(let user of this.followList){
+                        user.update()
+                    }
+                }
+            },
+            //添加新的关注的用户
+            add(user){
+                this.followList.push(user)
+            },
+            //移除不再关注的用户
+            remove(user){
+                const userIndex = this.followList.indexOf(user);
+                if(userIndex != -1){
+                    this.followList.splice(userIndex,1)
+                }
+            },
+            //计算关注公众号的总用户数
+            count(){
+                return this.followList.length;
+            }
+        }
+        class User{
+            constructor(name){
+                this.name = name;
+            }
+            update(){
+                console.log(`${this.name}接收到了公众号的内容更新`);
+            }
+        }
+
+        //创建两个新的用户
+        const zhangSan = new User('张三');
+        const liSi = new User('李四');
+
+        //公众号添加关注的用户
+        publicAccount.add(zhangSan);
+        publicAccount.add(liSi);
+
+        //公众号有内容更新
+        publicAccount.notify();
+        console.log(`当前关注公众号的用户数量是：${publicAccount.count()}`)
+
+        //张三不再关注公众号
+        publicAccount.remove(zhangSan);
+
+        //公众号内容有更新
+        publicAccount.notify();
+        console.log(`当前关注公众号的用户数量是：${publicAccount.count()}`)
+    </script>
+</body>
+</html>

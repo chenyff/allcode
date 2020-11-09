@@ -1,0 +1,14 @@
+/* pages/push/push.wxss */
+page{
+  background: #ffffff;
+}
+.push-wrap{
+  padding:0 15rpx;
+}
+.push-title{
+  font-size: 28rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+  justify-content: space-between;
+}
