@@ -7,24 +7,25 @@
   "style": "v2",
   "sitemapLocation": "sitemap.json",
   "tabBar": {
+    "selectedColor": "#E9802C",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "池子",
-        "iconPath": "assets/images/blob.png",
-        "selectedIconPath": "assets/images/blob-on.png"
+        "iconPath": "assets/images/index.png",
+        "selectedIconPath": "assets/images/index-on.png"
       },
       {
         "pagePath": "pages/push/push",
         "text": "发布",
-        "iconPath": "assets/images/blob.png",
-        "selectedIconPath": "assets/images/blob-on.png"
+        "iconPath": "assets/images/push.png",
+        "selectedIconPath": "assets/images/push-on.png"
       },
       {
         "pagePath": "pages/my/my",
         "text": "我的",
-        "iconPath": "assets/images/wode.png",
-        "selectedIconPath": "assets/images/wode-on.png"
+        "iconPath": "assets/images/my.png",
+        "selectedIconPath": "assets/images/my-on.png"
       }
     ]
   }

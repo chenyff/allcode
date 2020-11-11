@@ -1,0 +1,34 @@
+page{
+  background: #ffffff;
+}
+.pool-title{
+  height: 120rpx;
+  text-align: center;
+  font-size: 50rpx;
+  padding-top: 30rpx;
+}
+.poolBox{
+  padding: 0 30rpx;
+  text-align: center;
+}
+.pool-btn{
+  position: fixed;
+  width: 80%;
+  left: 10%;
+  bottom: 100rpx;
+  display: flex;
+  background: #E9802C;
+  color: #ffffff;
+  align-items: center;
+}
+.pool-btn view{
+  width: 50%;
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.pool-remarks{
+  text-align: left;
+  margin-top: 20rpx;
+  color: #666666;
+}
