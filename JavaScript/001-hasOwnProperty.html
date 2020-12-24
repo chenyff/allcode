@@ -13,7 +13,21 @@
        Array.prototype.num2 = 20;
        console.log(arr.hasOwnProperty('num'));  //true
        console.log(arr.hasOwnProperty('num2'));  //false
-       //判断是不是自身的属性  只能是自己用的  私有的
+       //判断是不是自身的属性  只能是自己用的  私有的    
+       //面向对象
+       function Person(){}
+       Person.prototype = {
+           name:'陈宇飞',
+           age:18,
+           sayName:function(){
+               alert(this.name)
+           }
+       }
+       String.prototype.startWidth = function(txt){
+            return this.indexOf(txt) == 0;
+       }
+       var a = 'hello world';
+       alert(a.startWidth('hello'))
     </script>
 </body>
 </html>
