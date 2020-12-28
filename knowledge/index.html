@@ -41,6 +41,7 @@
     <pre id="codeEle"></pre>
     <button id="getData">获取数据</button>
     <button id="saveData">存数据</button>
+    <button id="testBtn">测试</button>
     <table>
         <thead>
             <tr>
@@ -59,7 +60,7 @@
     <script>
         $('#getData').addEventListener('click',function(){
             aspenLib.ajax({
-                url:'/getKnowledge',
+                url:'/api/getKnowledge',
                 type:'post',
                 success:function(data){
                     if(data.status == 'success' && data.data.length > 0){
@@ -92,6 +93,17 @@
                     url:'/addKnowledge',
                     type:'post',
                     data:saveO,
+                    success:function(data){
+                        if(data.status == 'success'){
+                            alert('存储成功');
+                        }
+                    }
+                })
+        })
+        $('#testBtn').addEventListener('click',function(){
+            aspenLib.ajax({
+                    url:'/test',
+                    type:'post',
                     success:function(data){
                         if(data.status == 'success'){
                             alert('存储成功');

@@ -30,10 +30,15 @@ function mysqlOperation(sql,callback){
 		}
 	})
 }
-
+server.post('/api/test',function(req,res){
+	res.send({'status':'success'})
+})
+server.get('/tt',function(req,res){
+	res.send({'status':'success'})
+})
 
 //获取所有知识点
-server.post('/getKnowledge',function(req,res){
+server.post('/api/getKnowledge',function(req,res){
 	let sql = "SELECT * FROM `warehouse` LIMIT 0 , 10";//这样就只会获取10条
 	console.log(sql);
 	mysqlOperation(sql,function(err,rows){
