@@ -4,8 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table,th,td{
+            border: 1px solid #000000;
+        }
+    </style>
 </head>
 <body>
+    <h1>hello</h1>
+    <ul>
+        <li>
+            <span>标题</span>
+            <input type="text" id="titleEle">
+        </li>
+        <li>
+            <span>内容</span>
+            <textarea id="conEle"></textarea>
+        </li>
+        <li>
+            <span>备注</span>
+            <input type="text" id="remarksEle">
+        </li>
+        <li>
+            <span>类型</span>
+            <select id="typeEle">
+                <option value="古文">古文</option>
+                <option value="古诗">古诗</option>
+                <option value="常识">常识</option>
+            </select>
+        </li>
+    </ul>
+    <pre id="codeEle"></pre>
+    <button id="getData">获取数据</button>
+    <button id="saveData">存数据</button>
+    <table>
+        <thead>
+            <tr>
+                <th>编号</th>
+                <th>标题</th>
+                <th>内容</th>
+                <th>备注</th>
+                <th>类型</th>
+                <th>标识</th>
+            </tr>
+        </thead>
+        <tbody id="know">
+        </tbody>
+    </table>
     <script src="./public/aspen.lib.js"></script>
+    <script>
+        $('#getData').addEventListener('click',function(){
+            aspenLib.ajax({
+                url:'/getKnowledge',
+                type:'post',
+                success:function(data){
+                    if(data.status == 'success' && data.data.length > 0){
+                        var tbodyHtml = '';
+                        var itemData = data.data;
+                        for(var i=0;i<itemData.length;i++){
+                            tbodyHtml+=`<tr>
+                                            <td>${itemData[i].id}</td>
+                                            <td>${itemData[i].title}</td>
+                                            <td><pre>${itemData[i].content}</pre></td>
+                                            <td>${itemData[i].remarks}</td>
+                                            <td>${itemData[i].type}</td>
+                                            <td>${itemData[i].sign}</td>
+                                        </tr>`
+                        }
+                        $('#know').innerHTML = tbodyHtml;
+                    }
+                    
+                }
+            })
+        })
+        $('#saveData').addEventListener('click',function(){
+                var saveO = {
+                    title:$('#titleEle').value,
+                    content:$('#conEle').value,
+                    remarks:$('#remarksEle').value,
+                    type:$('#typeEle').value
+                }
+                aspenLib.ajax({
+                    url:'/addKnowledge',
+                    type:'post',
+                    data:saveO,
+                    success:function(data){
+                        if(data.status == 'success'){
+                            alert('存储成功');
+                        }
+                    }
+                })
+        })
+    </script>
 </body>
 </html>

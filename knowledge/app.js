@@ -11,9 +11,10 @@ server.use(express.static('./'))  //设置服务器静态文件访问地址 根�
 const mysql = require('mysql')
 //配置数据库
 let pool = mysql.createPool({
-    host: 'localhost',
+    host: '192.144.228.82',
     user: 'root',
-    password: '',
+	password: '123456',
+	post:3306,
     database:'knowledge',
     connectionLimit: 5,//连接池 最多可以创建几个连接
     queueLimit: 10//等待队伍中最多有几个连接
@@ -31,25 +32,26 @@ function mysqlOperation(sql,callback){
 }
 
 
-//获取所有书籍的接口
+//获取所有知识点
 server.post('/getKnowledge',function(req,res){
 	let sql = "SELECT * FROM `warehouse` LIMIT 0 , 10";//这样就只会获取10条
+	console.log(sql);
 	mysqlOperation(sql,function(err,rows){
 		res.send({'status':'success',data:rows})
 	})
 })
-//添加一本书籍的接口
-server.post('/addNewBook',function(req,res){
+//添加一个知识点
+/* server.post('/addKnowledge',function(req,res){
 	let reqObj = req.body;
-	let sql = "INSERT INTO `books`(`name`, `price`, `detail`, `classify`, `status`, `number`) VALUES ('"+reqObj.name+"','"+reqObj.price+"','"+reqObj.detail+"','"+reqObj.classify+"','01',0)";
+	let sql = "INSERT INTO `warehouse`(`title`, `content`, `remarks`, `type`, `sign`) VALUES ('"+reqObj.title+"','"+reqObj.content+"','"+reqObj.remarks+"','"+reqObj.type+"','chenyufei')";
 	mysqlOperation(sql,function(err,rows){
 		if(rows.affectedRows == 1){
 			res.send({'status':'success',data:'操作成功'})
 		}else{
 			res.send({'status':'error',data:'操作失败'})
 		}
-	})
-})
+	}) 
+}) */
 //删除一本书
 server.post('/removeBook',function(req,res){
 	let sql = "DELETE FROM `books` WHERE id in ("+req.body.ids+")";
