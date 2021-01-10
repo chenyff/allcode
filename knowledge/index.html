@@ -12,6 +12,10 @@
         table,th,td{
             border: 1px solid #000000;
         }
+        textarea{
+            width: 400px;
+            height: 100px;
+        }
     </style>
 </head>
 <body>
@@ -27,7 +31,7 @@
         </li>
         <li>
             <span>备注</span>
-            <input type="text" id="remarksEle">
+            <textarea id="remarksEle"></textarea>
         </li>
         <li>
             <span>类型</span>
@@ -90,12 +94,12 @@
                     type:$('#typeEle').value
                 }
                 aspenLib.ajax({
-                    url:'/addKnowledge',
+                    url:'/api/addKnowledge',
                     type:'post',
                     data:saveO,
                     success:function(data){
                         if(data.status == 'success'){
-                            alert('存储成功');
+                            $('#titleEle').value = $('#conEle').value = $('#remarksEle').value = $('#typeEle').value = '';
                         }
                     }
                 })

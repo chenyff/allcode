@@ -30,23 +30,17 @@ function mysqlOperation(sql,callback){
 		}
 	})
 }
-server.post('/api/test',function(req,res){
-	res.send({'status':'success'})
-})
-server.get('/tt',function(req,res){
-	res.send({'status':'success'})
-})
 
 //获取所有知识点
 server.post('/api/getKnowledge',function(req,res){
-	let sql = "SELECT * FROM `warehouse` LIMIT 0 , 10";//这样就只会获取10条
+	let sql = "SELECT * FROM `warehouse`";//这样就只会获取10条
 	console.log(sql);
 	mysqlOperation(sql,function(err,rows){
 		res.send({'status':'success',data:rows})
 	})
 })
 //添加一个知识点
-/* server.post('/addKnowledge',function(req,res){
+server.post('/api/addKnowledge',function(req,res){
 	let reqObj = req.body;
 	let sql = "INSERT INTO `warehouse`(`title`, `content`, `remarks`, `type`, `sign`) VALUES ('"+reqObj.title+"','"+reqObj.content+"','"+reqObj.remarks+"','"+reqObj.type+"','chenyufei')";
 	mysqlOperation(sql,function(err,rows){
@@ -56,7 +50,7 @@ server.post('/api/getKnowledge',function(req,res){
 			res.send({'status':'error',data:'操作失败'})
 		}
 	}) 
-}) */
+}) 
 //删除一本书
 server.post('/removeBook',function(req,res){
 	let sql = "DELETE FROM `books` WHERE id in ("+req.body.ids+")";
