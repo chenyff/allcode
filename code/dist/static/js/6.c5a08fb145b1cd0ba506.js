@@ -1,0 +1,2 @@
+webpackJsonp([6],{dPPu:function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r={render:function(){var t=this.$createElement,e=this._self._c||t;return e("div",[e("van-nav-bar",{attrs:{title:"首页"}}),this._v(" "),e("van-grid",{attrs:{gutter:0}},this._l(2,function(t){return e("van-grid-item",{key:t,attrs:{icon:"photo-o",text:"文字"}})}),1)],1)},staticRenderFns:[]};var i=n("VU/8")({},r,!1,function(t){n("xyoL")},null,null);e.default=i.exports},xyoL:function(t,e){}});
+//# sourceMappingURL=6.c5a08fb145b1cd0ba506.js.map

@@ -1,0 +1,2 @@
+webpackJsonp([0],{"0RrJ":function(t,n,e){"use strict";n.a=function(t){var n=i.a.create({baseURL:"https://www.fengcaimi.cn/api",timeout:5e3});return n.interceptors.request.use(function(t){return t},function(t){console.log(t)}),n(t)};var r=e("mtWM"),i=e.n(r)},mvHQ:function(t,n,e){t.exports={default:e("qkKv"),__esModule:!0}},qkKv:function(t,n,e){var r=e("FeBl"),i=r.JSON||(r.JSON={stringify:JSON.stringify});t.exports=function(t){return i.stringify.apply(i,arguments)}}});
+//# sourceMappingURL=0.5416c870deb7f9dd213a.js.map
